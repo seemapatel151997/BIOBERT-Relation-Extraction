@@ -150,42 +150,43 @@ class infer_from_trained(object):
         sent_nlp = sent_nlp[:e2_start] + "[E2]" + sent_nlp[e2_start:]
         sent_nlp = sent_nlp[:e2_end+4] + "[/E2]" + sent_nlp[e2_end+4:]
         print("sent_nlp: ", sent_nlp)
-        for token in sent_nlp:
-            if not isinstance(e1, list):
-                if (token.text == e1.text) and (e1start == 0) and (e1end == 0):
-                    annotated += ' [E1]' + token.text + '[/E1] '
-                    e1start, e1end = 1, 1
-                    continue
+        return sent_nlp
+        # for token in sent_nlp:
+        #     if not isinstance(e1, list):
+        #         if (token.text == e1.text) and (e1start == 0) and (e1end == 0):
+        #             annotated += ' [E1]' + token.text + '[/E1] '
+        #             e1start, e1end = 1, 1
+        #             continue
                 
-            else:
-                if (token.text == e1[0].text) and (e1start == 0):
-                    annotated += ' [E1]' + token.text + ' '
-                    e1start += 1
-                    continue
-                elif (token.text == e1[-1].text) and (e1end == 0):
-                    annotated += token.text + '[/E1] '
-                    e1end += 1
-                    continue
+        #     else:
+        #         if (token.text == e1[0].text) and (e1start == 0):
+        #             annotated += ' [E1]' + token.text + ' '
+        #             e1start += 1
+        #             continue
+        #         elif (token.text == e1[-1].text) and (e1end == 0):
+        #             annotated += token.text + '[/E1] '
+        #             e1end += 1
+        #             continue
            
-            if not isinstance(e2, list):
-                if (token.text == e2.text) and (e2start == 0) and (e2end == 0):
-                    annotated += ' [E2]' + token.text + '[/E2] '
-                    e2start, e2end = 1, 1
-                    continue
-            else:
-                if (token.text == e2[0].text) and (e2start == 0):
-                    annotated += ' [E2]' + token.text + ' '
-                    e2start += 1
-                    continue
-                elif (token.text == e2[-1].text) and (e2end == 0):
-                    annotated += token.text + '[/E2] '
-                    e2end += 1
-                    continue
-            annotated += ' ' + token.text + ' '
+        #     if not isinstance(e2, list):
+        #         if (token.text == e2.text) and (e2start == 0) and (e2end == 0):
+        #             annotated += ' [E2]' + token.text + '[/E2] '
+        #             e2start, e2end = 1, 1
+        #             continue
+        #     else:
+        #         if (token.text == e2[0].text) and (e2start == 0):
+        #             annotated += ' [E2]' + token.text + ' '
+        #             e2start += 1
+        #             continue
+        #         elif (token.text == e2[-1].text) and (e2end == 0):
+        #             annotated += token.text + '[/E2] '
+        #             e2end += 1
+        #             continue
+        #     annotated += ' ' + token.text + ' '
             
-        annotated = annotated.strip()
-        annotated = re.sub(' +', ' ', annotated)
-        return annotated
+        # annotated = annotated.strip()
+        # annotated = re.sub(' +', ' ', annotated)
+        # return annotated
     
     def get_annotated_sents(self, sent):
         sent_nlp = self.nlp(sent)
