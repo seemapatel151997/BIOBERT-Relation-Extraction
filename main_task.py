@@ -57,10 +57,10 @@ if __name__ == "__main__":
         inferer.infer_sentence(test2, detect_entities=True)
         
         while True:
-            sent = input("Type input sentence ('quit' or 'exit' to terminate):\n")
+            sent = input("Type input sentence ('quit' or 'exit' to terminate):")
             if sent.lower() in ['quit', 'exit']:
                 break
-            inferer.infer_sentence(sent, detect_entities=False)
+            inferer.infer_sentence(sent, detect_entities=True)
     
     if args.task == 'fewrel':
         fewrel = FewRel(args)
