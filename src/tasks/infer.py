@@ -137,6 +137,7 @@ class infer_from_trained(object):
         e1_end = e_location[0][1]
         e2_start = e_location[1][0]
         e2_end = e_location[1][1]
+        print(e1_start, e1_end, e2_start, e2_end)
         annotated = ''
         e1start, e1end, e2start, e2end = 0, 0, 0, 0
         sent_nlp = sent_nlp[:e1_start] + "[E1]" + sent_nlp[e1_start:]
