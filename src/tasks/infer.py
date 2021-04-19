@@ -137,9 +137,9 @@ class infer_from_trained(object):
         e1_end = e_location[0][1]
         e2_start = e_location[1][0]
         e2_end = e_location[1][1]
-        print(e1_start, e1_end, e2_start, e2_end)
+        # print(e1_start, e1_end, e2_start, e2_end)
         sent_nlp = str(sent_nlp)
-        print("sent_nlp: ", sent_nlp)
+        # print("sent_nlp: ", sent_nlp)
         annotated = ''
         e1start, e1end, e2start, e2end = 0, 0, 0, 0
         sent_nlp = sent_nlp[:e1_start] + "[E1]" + sent_nlp[e1_start:]
@@ -149,7 +149,7 @@ class infer_from_trained(object):
             e2_end += 9
         sent_nlp = sent_nlp[:e2_start] + "[E2]" + sent_nlp[e2_start:]
         sent_nlp = sent_nlp[:e2_end+4] + "[/E2]" + sent_nlp[e2_end+4:]
-        print("sent_nlp: ", sent_nlp)
+        # print("sent_nlp: ", sent_nlp)
         return sent_nlp
         # for token in sent_nlp:
         #     if not isinstance(e1, list):
