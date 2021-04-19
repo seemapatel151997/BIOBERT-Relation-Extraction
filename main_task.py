@@ -51,10 +51,10 @@ if __name__ == "__main__":
         
     if (args.infer == 1) and (args.task != 'fewrel'):
         inferer = infer_from_trained(args, detect_entities=True)
-        test = "The surprise [E1]visit[/E1] caused a [E2]frenzy[/E2] on the already chaotic trading floor."
-        inferer.infer_sentence(test, detect_entities=False)
-        test2 = "After eating the chicken, he developed a sore throat the next morning."
-        inferer.infer_sentence(test2, detect_entities=True)
+        # test = "The surprise [E1]visit[/E1] caused a [E2]frenzy[/E2] on the already chaotic trading floor."
+        # inferer.infer_sentence(test, detect_entities=False)
+        # test2 = "After eating the chicken, he developed a sore throat the next morning."
+        # inferer.infer_sentence(test2, detect_entities=True)
         
         while True:
             sent = input("Type input sentence ('quit' or 'exit' to terminate):")
