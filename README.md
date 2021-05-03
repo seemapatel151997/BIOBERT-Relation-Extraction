@@ -6,11 +6,11 @@
 
 #### Requirements and Setup
 
-> $git clone https://github.com/seemapatel151997/BIOBERT-Relation-Extraction.git
+> $ git clone https://github.com/seemapatel151997/BIOBERT-Relation-Extraction.git
 
 Install all required python packages
 
-> pip install -r requirements.txt
+> $ pip install -r requirements.txt
 
 To use BioBERT(biobert_v1.1_pubmed), download & unzip the [pretrained model](https://drive.google.com/file/d/1R84voFKHfWV9xjzeLzWBbmY1uOMYpnyD/view) to ./additional_models folder.
 
@@ -20,7 +20,7 @@ run bash script to convert from tensorflow into pytorch version of the model.
 
 Run main_task.py with arguments below. Requires SemEval2010 Task 8 dataset, available [here.](https://github.com/sahitya0000/Relation-Classification/blob/master/corpus/SemEval2010_task8_all_data.zip) Download & unzip to ./data/ folder.
 
-> $python main_task.py
+> $ python main_task.py \
 > --train_data ./data/SemEval2010_task8_all_data/SemEval2010_task8_training/TRAIN_FILE.TXT
 > --test_data ./data/SemEval2010_task8_all_data/SemEval2010_task8_testing_keys/TEST_FILE_FULL.TXT
 > --use_pretrained_blanks 0
