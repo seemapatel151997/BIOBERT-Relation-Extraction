@@ -1,0 +1,8 @@
+transformers==4.5.1
+tensorflow==2.4.1
+torch==1.8.1
+pandas==1.1.5
+seqeval==1.2.2
+matplotlib==3.3.4
+spacy==3.0.6
+boto3==1.17.62
