@@ -44,6 +44,7 @@ if __name__ == "__main__":
                                                                                     For BioBERT: 'bert-base-uncased' (biobert_v1.1_pubmed)")
     parser.add_argument("--train", type=int, default=1, help="0: Don't train, 1: train")
     parser.add_argument("--infer", type=int, default=1, help="0: Don't infer, 1: Infer")
+    parser.add_argument("--prediction_file", type=str, help="file path for output prediction")
     
     args = parser.parse_args()
     
