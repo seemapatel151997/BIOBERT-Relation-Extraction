@@ -195,7 +195,7 @@ class infer_from_trained(object):
         pairs.extend(self.get_all_sub_obj_pairs(sent_nlp))
         if len(pairs) == 0:
             print('Found less than 2 entities!')
-            return "Found less than 2 entities!"
+            return
         annotated_list = []
         for pair in pairs:
             annotated = self.annotate_sent(sent_nlp, pair[0], pair[1], pair[2])
