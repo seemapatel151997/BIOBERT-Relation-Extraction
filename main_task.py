@@ -66,6 +66,7 @@ if __name__ == "__main__":
         sent = args.input_sent
         if type(sent) == list:
             for sen in sent:
+                print("Main sentence: " + sen)
                 with open(args.prediction_file, "a") as f:
                     f.write("\n\n\n\n\nSentence: "+ sen + "\n\n")
 

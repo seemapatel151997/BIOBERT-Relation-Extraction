@@ -195,7 +195,7 @@ class infer_from_trained(object):
         pairs.extend(self.get_all_sub_obj_pairs(sent_nlp))
         if len(pairs) == 0:
             print('Found less than 2 entities!')
-            return
+            return "Found less than 2 entities!"
         annotated_list = []
         for pair in pairs:
             annotated = self.annotate_sent(sent_nlp, pair[0], pair[1], pair[2])
@@ -227,7 +227,7 @@ class infer_from_trained(object):
             predicted = torch.softmax(classification_logits, dim=1).max(1)[1].item()
         with open(file_path, "a") as f:
         	f.write("Sentence: "+ sentence + "\n" + "Predicted: "+ self.rm.idx2rel[predicted].strip()+ '\n\n')
-        print("Sentence: ", sentence)
+        print("Sentence with entity: ", sentence)
         print("Predicted: ", self.rm.idx2rel[predicted].strip(), '\n')
         return predicted
     
