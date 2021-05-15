@@ -71,7 +71,7 @@ if __name__ == "__main__":
             for sen in sent:
                 print("Main sentence: " + sen)
                 with open(args.prediction_file, "a") as f:
-                    f.write("\n\n\n\n\nSentence: "+ sen + "\n\n")
+                    f.write("\n\n\n\n\n"+"#"*150+"\nSentence: "+ sen + "\n\n")
 
                 inferer.infer_sentence(sen, args.prediction_file, detect_entities=True)
         else:

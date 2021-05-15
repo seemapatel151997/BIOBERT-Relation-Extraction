@@ -226,9 +226,9 @@ class infer_from_trained(object):
                                         e1_e2_start=e1_e2_start)
             predicted = torch.softmax(classification_logits, dim=1).max(1)[1].item()
         with open(file_path, "a") as f:
-        	f.write("Sentence: "+ sentence + "\n" + "Predicted: "+ self.rm.idx2rel[predicted].strip()+ '\n\n')
-        print("Sentence with entity: ", sentence)
-        print("Predicted: ", self.rm.idx2rel[predicted].strip(), '\n')
+        	f.write("Detected Entities: "+ sentence + "\n" + "Predicted Relation: "+ self.rm.idx2rel[predicted].strip()+ '\n\n')
+        print("Detected Entities: ", sentence)
+        print("Predicted Relation: ", self.rm.idx2rel[predicted].strip(), '\n')
         return predicted
     
     def infer_sentence(self, sentence, file_path, detect_entities=False):
