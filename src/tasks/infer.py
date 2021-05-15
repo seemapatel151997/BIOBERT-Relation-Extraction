@@ -207,7 +207,7 @@ class infer_from_trained(object):
                         [i for i, e in enumerate(x) if e == self.e2_id][0])
         return e1_e2_start
     
-    def infer_one_sentence(self, sentence):
+    def infer_one_sentence(self, sentence, file_path):
         self.net.eval()
         tokenized = self.tokenizer.encode(sentence); #print(tokenized)
         e1_e2_start = self.get_e1e2_start(tokenized); #print(e1_e2_start)
@@ -225,6 +225,8 @@ class infer_from_trained(object):
             classification_logits = self.net(tokenized, token_type_ids=token_type_ids, attention_mask=attention_mask, Q=None,\
                                         e1_e2_start=e1_e2_start)
             predicted = torch.softmax(classification_logits, dim=1).max(1)[1].item()
+        with open(file_path, "a") as f:
+        	f.write("Sentence: "+ sentence + "\n" + "Predicted: "+ self.rm.idx2rel[predicted].strip()+ '\n\n')
         print("Sentence: ", sentence)
         print("Predicted: ", self.rm.idx2rel[predicted].strip(), '\n')
         return predicted

@@ -6,11 +6,15 @@
 
 #### Requirements and Setup
 
-> $ git clone https://github.com/seemapatel151997/BIOBERT-Relation-Extraction.git
+```markdown
+$ git clone https://github.com/seemapatel151997/BIOBERT-Relation-Extraction.git
+```
 
 Install all required python packages
 
-> $ pip install -r requirements.txt
+```markdown
+$ pip install -r requirements.txt
+```
 
 To use BioBERT(biobert_v1.1_pubmed), download & unzip the [pretrained model](https://drive.google.com/file/d/1R84voFKHfWV9xjzeLzWBbmY1uOMYpnyD/view) to ./additional_models folder.
 
@@ -45,7 +49,7 @@ The script can also automatically detect potential entities in an input sentence
 Set infer=1 to enable inference mode and train=0 to disable training mode. model_no=2 to use the fine-tuned BioBERT model.
 
 ```markdown
- $python main_task.py \
+$ python main_task.py \
     --train 0 \
     --infer 1  \
     --model_no 2 \

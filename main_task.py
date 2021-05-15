@@ -63,7 +63,14 @@ if __name__ == "__main__":
             # if sent.lower() in ['quit', 'exit']:
             #     break
         sent = args.input_sent
-        inferer.infer_sentence(sent, detect_entities=True)
+        if type(sent) == list:
+            for sen in sent:
+                with open(args.prediction_file, "a") as f:
+                    f.write("\n\n\n\n\nSentence: "+ sen + "\n\n")
+
+                inferer.infer_sentence(sen, args.prediction_file, detect_entities=True)
+        else:
+            inferer.infer_sentence(sent, detect_entities=True)
     
     if args.task == 'fewrel':
         fewrel = FewRel(args)
