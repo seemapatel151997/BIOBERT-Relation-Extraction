@@ -64,6 +64,7 @@ if __name__ == "__main__":
             # if sent.lower() in ['quit', 'exit']:
             #     break
         input_file_path = args.input_file
+        print("input_file_path", input_file_path)
         with open(input_file_path, "r") as fp:
             sent = fp.read().split("\n")
         if type(sent) == list:
