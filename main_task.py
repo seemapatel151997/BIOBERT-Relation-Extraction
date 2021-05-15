@@ -20,7 +20,7 @@ logger = logging.getLogger('__file__')
 
 if __name__ == "__main__":
     parser = ArgumentParser()
-    parser.add_argument("--input_sent", type=str, default='After eating the chicken, he developed a sore throat the next morning.', help='input infer sentence')
+    parser.add_argument("--input_sent", type=list, default='After eating the chicken, he developed a sore throat the next morning.', help='input infer sentence')
     parser.add_argument("--task", type=str, default='semeval', help='semeval, fewrel')
     parser.add_argument("--train_data", type=str, default='./data/SemEval2010_task8_all_data/SemEval2010_task8_training/TRAIN_FILE.TXT', \
                         help="training data .txt file path")
