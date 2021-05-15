@@ -9,6 +9,7 @@ from src.tasks.trainer import train_and_fit
 from src.tasks.infer import infer_from_trained, FewRel
 import logging
 from argparse import ArgumentParser
+import sys
 
 '''
 This fine-tunes the BERT model on SemEval, FewRel tasks
@@ -20,7 +21,7 @@ logger = logging.getLogger('__file__')
 
 if __name__ == "__main__":
     parser = ArgumentParser()
-    parser.add_argument("--input_sent", nargs='+', default='After eating the chicken, he developed a sore throat the next morning.', help='input infer sentence')
+    # parser.add_argument("--input_sent", nargs='+', default='After eating the chicken, he developed a sore throat the next morning.', help='input infer sentence')
     parser.add_argument("--task", type=str, default='semeval', help='semeval, fewrel')
     parser.add_argument("--train_data", type=str, default='./data/SemEval2010_task8_all_data/SemEval2010_task8_training/TRAIN_FILE.TXT', \
                         help="training data .txt file path")
@@ -63,7 +64,8 @@ if __name__ == "__main__":
             
             # if sent.lower() in ['quit', 'exit']:
             #     break
-        sent = args.input_sent
+        # sent = args.input_sent
+        sent = sys.argv[0]
         if type(sent) == list:
             for sen in sent:
                 print("Main sentence: " + sen)
