@@ -191,7 +191,7 @@ class infer_from_trained(object):
     def get_annotated_sents(self, sent):
         sent_nlp = self.nlp(sent)
         pairs = self.get_all_ent_pairs(sent_nlp)
-        pairs.extend(self.get_all_sub_obj_pairs(sent_nlp))
+        # pairs.extend(self.get_all_sub_obj_pairs(sent_nlp))
         print("pairs: ", pairs)
         if len(pairs) == 0:
             print('Found less than 2 entities!')
