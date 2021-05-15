@@ -231,17 +231,17 @@ class infer_from_trained(object):
         print("Predicted: ", self.rm.idx2rel[predicted].strip(), '\n')
         return predicted
     
-    def infer_sentence(self, sentence, detect_entities=False):
+    def infer_sentence(self, sentence, file_path, detect_entities=False):
         if detect_entities:
             sentences = self.get_annotated_sents(sentence)
             if sentences != None:
                 preds = []
                 for sent in sentences:
-                    pred = self.infer_one_sentence(sent)
+                    pred = self.infer_one_sentence(sent, file_path)
                     preds.append(pred)
                 return preds
         else:
-            return self.infer_one_sentence(sentence)
+            return self.infer_one_sentence(sentence, file_path)
 
 class FewRel(object):
     def __init__(self, args=None):
