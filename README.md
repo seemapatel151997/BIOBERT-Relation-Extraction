@@ -1,10 +1,18 @@
 # BIOBERT-Relation-Extraction
 
+To know in more detail please go through [this]().
+Pytorch implementation
+
 #### Relation Exctraction
 
 #### BIOBERT vs BERT
+* Pretained Biobert model link
 
 #### Requirements and Setup
+
+* Python version 
+* Spacy version
+* PyTorch Version
 
 ```markdown
 $ git clone https://github.com/seemapatel151997/BIOBERT-Relation-Extraction.git
@@ -55,3 +63,5 @@ $ python main_task.py \
     --model_no 2 \
     --input_sent "The COVID-19 pandemic, also known as the coronavirus pandemic, is an ongoing global pandemic of coronavirus disease 2019 (COVID‑19) caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2)."
 ```
+
+#### References

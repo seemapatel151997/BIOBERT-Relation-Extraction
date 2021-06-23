@@ -7,3 +7,5 @@ src/model/BERT/__pycache__
 src/tasks/__pycache__
 additional_models/biobert_v1.1_pubmed.tar.gz
 additional_models/biobert_v1.1_pubmed
+COVID-19_pandemic_prediction.txt
+Final_model

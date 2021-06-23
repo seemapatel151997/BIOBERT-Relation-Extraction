@@ -20,7 +20,8 @@ logger = logging.getLogger('__file__')
 
 if __name__ == "__main__":
     parser = ArgumentParser()
-    parser.add_argument("--input_file", type=str, help='input infer sentence')
+    parser.add_argument("--input_file", type=str, default=None, help='file with all input lines each separated by new line')
+    parser.add_argument("--input_sent", type=str, default=None, help='input sentence')
     parser.add_argument("--task", type=str, default='semeval', help='semeval, fewrel')
     parser.add_argument("--train_data", type=str, default='./data/SemEval2010_task8_all_data/SemEval2010_task8_training/TRAIN_FILE.TXT', \
                         help="training data .txt file path")
@@ -63,20 +64,20 @@ if __name__ == "__main__":
             
             # if sent.lower() in ['quit', 'exit']:
             #     break
-        input_file_path = args.input_file
-        print("input_file_path", input_file_path)
-        with open(input_file_path, "r") as fp:
-            sent = fp.read().split("\n")
-        if type(sent) == list:
-            for sen in sent:
-                print("Main sentence: " + sen)
+        if args.input_file != None:
+            print("input_file_path", args.input_file)
+            with open(args.input_file, "r") as fp:
+                sents = fp.read().split("\n")
+            for sent in sents:
+                print("Main sentence: " + sent)
                 with open(args.prediction_file, "a") as f:
-                    f.write("\n\n\n\n\n"+"#"*150+"\nSentence: "+ sen + "\n\n")
+                    f.write("\n\n\n\n\n"+"#"*150+"\nSentence: "+ sent + "\n\n")
 
-                inferer.infer_sentence(sen, args.prediction_file, detect_entities=True)
+                inferer.infer_sentence(sent, args.prediction_file, detect_entities=True)
+        elif args.input_sent != None:
+            inferer.infer_sentence(args.input_sent,None, detect_entities=True)
         else:
-            inferer.infer_sentence(sent, detect_entities=True)
-    
+            raise ValueError("Please provide input_sent or input_file for inference.")
     if args.task == 'fewrel':
         fewrel = FewRel(args)
         meta_input, e1_e2_start, meta_labels, outputs = fewrel.evaluate()

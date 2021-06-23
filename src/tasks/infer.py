@@ -225,21 +225,23 @@ class infer_from_trained(object):
             classification_logits = self.net(tokenized, token_type_ids=token_type_ids, attention_mask=attention_mask, Q=None,\
                                         e1_e2_start=e1_e2_start)
             predicted = torch.softmax(classification_logits, dim=1).max(1)[1].item()
-        with open(file_path, "a") as f:
-        	f.write("Detected Entities: "+ sentence + "\n" + "Predicted Relation: "+ self.rm.idx2rel[predicted].strip()+ '\n\n')
+        if file_path != None:
+            with open(file_path, "a") as f:
+            	f.write("Detected Entities: "+ sentence + "\n" + "Predicted Relation: "+ self.rm.idx2rel[predicted].strip()+ '\n\n')
         print("Detected Entities: ", sentence)
         print("Predicted Relation: ", self.rm.idx2rel[predicted].strip(), '\n')
         return predicted
     
     def infer_sentence(self, sentence, file_path, detect_entities=False):
         if detect_entities:
-            sentences = self.get_annotated_sents(sentence)
-            if sentences != None:
-                preds = []
-                for sent in sentences:
-                    pred = self.infer_one_sentence(sent, file_path)
-                    preds.append(pred)
-                return preds
+            if file_path != None:
+                sentences = self.get_annotated_sents(sentence)
+                if sentences != None:
+                    preds = []
+                    for sent in sentences:
+                        pred = self.infer_one_sentence(sent, file_path)
+                        preds.append(pred)
+                    return preds
         else:
             return self.infer_one_sentence(sentence, file_path)
 
