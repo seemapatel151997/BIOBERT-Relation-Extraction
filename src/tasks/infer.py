@@ -41,7 +41,7 @@ class infer_from_trained(object):
         self.detect_entities = detect_entities
         
         if self.detect_entities:
-            self.nlp = spacy.load("en_ner_bc5cdr_md")
+            self.nlp = spacy.load("en_ner_bionlp13cg_md")
         else:
             self.nlp = None
         self.entities_of_interest = ["PERSON", "NORP", "FAC", "ORG", "GPE", "LOC", "PRODUCT", "EVENT", \
