@@ -330,6 +330,7 @@ def load_dataloaders(args):
         if os.path.isfile(relations_path) and os.path.isfile(train_path) and os.path.isfile(test_path):
             rm = load_pickle('relations.pkl')
             df_train = load_pickle('df_train.pkl')
+            print("df_train:", type(df_train))
             df_test = load_pickle('df_test.pkl')
             logger.info("Loaded preproccessed data.")
         else:

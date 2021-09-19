@@ -1,0 +1,43 @@
+Entity Types of the NER:
+
+	NER Models and its types:
+	
+	scispacy model: en_ner_craft_md
+	Entities: GGP (Genes and Genes Product), SO (Sequence ontology), TAXON (taxonomy), CHEBI (Chemical entities of biological interest ontology), GO (Gene Ontology), CL (Cell type ontology)
+	
+	scispacy model: en_ner_jnlpba_md
+	Entities: DNA, CELL_TYPE, CELL_LINE, RNA, PROTEIN
+	
+	scispacy model: en_ner_bc5cdr_md
+	Entities: DISEASE, CHEMICAL
+	
+	scispacy model: en_ner_bionlp13cg_md
+	Entities: AMINO_ACID, ANATOMICAL_SYSTEM, CANCER, CELL, CELLULAR_COMPONENT, DEVELOPING_ANATOMICAL_STRUCTURE, GENE_OR_GENE_PRODUCT, IMMATERIAL_ANATOMICAL_ENTITY, MULTI-TISSUE_STRUCTURE, ORGAN, ORGANISM, ORGANISM_SUBDIVISION, ORGANISM_SUBSTANCE, PATHOLOGICAL_FORMATION, SIMPLE_CHEMICAL, TISSUE
+	
+Entity Types of Relation Extraction Datasets:
+
+	Datasets and its input entity types:
+
+	Dataset name: BioNLP
+	Entity Names: Protein, Entity (Non-Protein) 
+	Relation Names: (Note: Arg1=Protein, Arg2=Entity)
+		- Subunit-Complex(Arg1-Arg2): Subunit-Complex is a Component-Object relation that holds between a protein complex and its subunits, individual proteins.
+		- Protein-Component(Arg1-Arg2) : Protein-Component is a less specific Object-Component relation that holds between a gene/protein and its component, such as a protein domain or the promoter of a gene.
+
+	Dataset name: ChemProt
+	Entity Names: CHEMICAL, GENE-Y, GENE-N
+	Relation Names: PRODUCT-OF, ANTAGONIST, SUBSTRATE, ACTIVATOR, INHIBITOR, INDIRECT-DOWNREGULATOR, INDIRECT-UPREGULATOR, AGONIST, PART-OF, DIRECT-REGULATOR, AGONIST-ACTIVATOR, AGONIST-INHIBITOR, SUBSTRATE_PRODUCT-OF
+
+	Dataset name: DDI Corpus-2013(BRAT)
+	Entity Names: DRUG, BRAND, GROUP, DRUG_N
+	Relation Names: MECHANISM
+					EFFECT
+					ADVISE
+					INT
+
+Reference link: 
+1. https://github.com/CrowdTruth/Medical-Relation-Extraction
+2. https://hpo.jax.org/app/download/annotation
+3. https://github.com/JHnlp/BioCreative-V-CDR-Corpus
+4. https://github.com/lasigeBioTM/REEL
+5. https://www.ebi.ac.uk/chebi/
