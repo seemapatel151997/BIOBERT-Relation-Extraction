@@ -86,6 +86,7 @@ def train_and_fit(args):
                            "classification_layer", "blanks_linear", "lm_linear", "cls"]
         
     for name, param in net.named_parameters():
+        print("*"*10, [layer in name for layer in unfrozen_layers])
         if not any([layer in name for layer in unfrozen_layers]):
             print("[FROZE]: %s" % name)
             param.requires_grad = False
