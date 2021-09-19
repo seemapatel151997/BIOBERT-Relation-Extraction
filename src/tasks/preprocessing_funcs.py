@@ -334,7 +334,7 @@ def load_dataloaders(args):
             logger.info("Loaded preproccessed data.")
         else:
             df_train, df_test, rm = preprocess_semeval2010_8(args)
-        print("df_train:", type(df_train))
+        print("df_train:", df_train.head(10))
         
         train_set = semeval_dataset(df_train, tokenizer=tokenizer, e1_id=e1_id, e2_id=e2_id)
         test_set = semeval_dataset(df_test, tokenizer=tokenizer, e1_id=e1_id, e2_id=e2_id)
